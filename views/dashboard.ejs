@@ -1,8 +1,54 @@
 
-<h1 class="text-center">This is Dashboard</h1>
-
-<a href="/users/login">Log In</a>
-
-<a href="/users/register">Sign Up</a>
-
+<div><p><%= user.name %></p></div>
 <a href="/users/logout">Log out</a>
+
+<div class="container">
+    <div class="row mt-2 text-primary">
+        <h2 class="text-center">Habits here</h2>
+    </div>
+
+    <div class="row my-3">
+        <form action="/habits/create" method="post">
+            <input type="text" class="form-control p-3" name="habit" placeholder="Add habit...">
+            <div class="d-grid d-md-flex justify-content-center my-3">
+                <button class="btn btn-primary" style="width:40%" type="submit">ADD</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+
+    <div class="row border">
+
+        <% if(habits.length > 0){ %>
+            <ol class="list-group list-group-numberd">
+                <% for(let habit of habits){ %>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-start m-3">
+                        <div class="me-auto">
+                            <div class="fw-bold">
+                                <%= habit.content %>
+                            </div>
+                            <a href="/habits/delete/:id">
+                                <button class="btn btn-danger btn-sm m-3">Remove habit</button>
+                            </a>
+                            <span class="badge bg-success rounded-pill">
+                                Streak : <%= habit.streak %>/7
+                            </span>
+                            <span class="badge bg-success rounded-pill">
+                                Completed : <%= habit.completed %>/7
+                            </span>
+                        </div>
+                    </li>
+
+                <% } %>
+            </ol>
+        <% } %>
+
+    </div>
+
+</div>
+
+
+

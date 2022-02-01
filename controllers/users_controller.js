@@ -7,10 +7,11 @@ module.exports.login = function(req, res){
         return res.render('dashboard', {
             title : "HT | Dashboard"
         });
+    }else{
+        return res.render('login', {
+            title : 'HT | Login'
+        });
     }
-    return res.render('login', {
-        title : 'HT | Login'
-    });
 }
 
 
@@ -23,25 +24,32 @@ module.exports.register = function(req, res){
         return res.render('dashboard', {
             title : "HT | Dashboard"
         });
+    }else{
+        return res.render('register', {
+            title : 'HT | register'
+        });
     }
-    return res.render('register', {
-        title : 'HT | register'
-    });
 }
 
 
 
-
-
-module.exports.dashboard = function(req, res){
+module.exports.dashboard = async function(req, res){
     if(req.isAuthenticated()){
+
+        let user = await User.findById(req.user.id).populate('habits');
+
+        let habits = user.habits;
+
         return res.render('dashboard', {
-            title : "HT | Dashboard"
+            title : "HT | Dashboard",
+            habits : habits,
+            user : user,
+        });
+    }else{
+        return res.render('login', {
+            title : "HT | Login"
         });
     }
-    return res.render('login', {
-        title : "HT | Login"
-    });
 }
 
 

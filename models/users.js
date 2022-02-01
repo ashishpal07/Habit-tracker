@@ -14,7 +14,13 @@ const userSchema = new mongoose.Schema({
     password : {
         type : String,
         required : true
-    }
+    },
+    habits : [
+        {
+            type : mongoose.Schema.Types.ObjectId,
+            ref : 'Habit',
+        }
+    ]
 
 },{
     timestamps : true
