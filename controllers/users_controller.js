@@ -30,3 +30,8 @@ module.exports.createUser = function(req, res){
     });
 
 }
+
+module.exports.createSession = function(req, res){
+    // Todo later
+    return res.redirect('/');
+}
