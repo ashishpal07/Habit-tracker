@@ -2,6 +2,8 @@
 const User = require('../models/users');
 const Habit = require('../models/habits');
 
+
+// login page rendring condition
 module.exports.login = function(req, res){
     if(req.isAuthenticated()){
         req.flash('success', "Logout first");
@@ -16,6 +18,7 @@ module.exports.login = function(req, res){
 }
 
 
+// register page rendring controller
 module.exports.register = function(req, res){
     if(req.isAuthenticated()){
         req.flash('success', "Logout first");
@@ -31,7 +34,7 @@ module.exports.register = function(req, res){
 
 
 
-
+// destroying session condition
 module.exports.destroySession = function(req, res){
     req.logout();
 
@@ -40,7 +43,7 @@ module.exports.destroySession = function(req, res){
 }
 
 
-
+// create user 
 module.exports.createUser = function(req, res){
 
     if(req.password != req.password2){
@@ -59,8 +62,9 @@ module.exports.createUser = function(req, res){
 
 }
 
+
+// creating session
 module.exports.createSession = function(req, res){
-    // Todo later
     req.flash('success', 'Log In Successfully')
     return res.redirect('/habits/dashboard');
 }

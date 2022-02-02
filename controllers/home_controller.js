@@ -1,4 +1,5 @@
 
+// home page redering controller
 module.exports.home = function(req, res){
     if(req.isAuthenticated()){
         return res.render('home', {
