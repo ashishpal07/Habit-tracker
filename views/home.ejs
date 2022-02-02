@@ -1,5 +1,48 @@
 
 
+<link rel="stylesheet" href="/css/home.css">
+<div class="card text-center">
 
-<h1>Home</h1>
+    <div class="card-body">
+        <h2 class="card-title">
+            Habit Tracker App
+            <% if(locals.user){ %>
+                | <a href="/habits/dashboard" style="text-decoration: none; color: blueviolet;">
+                    See your habits here
+                </a>
+            <% } %>
+            <div id="image" class="my-2">
+                <img src="/images/icon.png" alt="image">
+            </div>
+        </h2>
+        
+        <div class="d-grid gap-2 col-6 mx-auto btns-2">
+            <% if(locals.user){ %>
+                <div class="b2 my-3">
+                    <a href="/habits/dashboard"><button class="btn btn-primary">
+                        Go to Dashboard
+                    </button></a>
+                </div>
+            <% }else{ %>
+                <div class="b2">
+                    <a href="/users/login">
+                        <button class="btn btn-primary">
+                            Log In
+                        </button>
+                    </a>
+                </div>
+
+                <div class="b2">
+                    <a href="/users/Register">
+                        <button class="btn btn-primary">
+                            Register
+                        </button>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+        
+    </div>
+    
+</div>
 

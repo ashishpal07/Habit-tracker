@@ -1,9 +1,10 @@
 
 const User = require('../models/users');
+const Habit = require('../models/habits');
 
 module.exports.login = function(req, res){
     if(req.isAuthenticated()){
-        console.log("can not go to the login you have to logged out first");
+        req.flash('success', "Logout first");
         return res.render('dashboard', {
             title : "HT | Dashboard"
         });
@@ -15,12 +16,9 @@ module.exports.login = function(req, res){
 }
 
 
-
-
-
 module.exports.register = function(req, res){
     if(req.isAuthenticated()){
-        console.log("can not go to the register you have to logged out first");
+        req.flash('success', "Logout first");
         return res.render('dashboard', {
             title : "HT | Dashboard"
         });
@@ -33,30 +31,11 @@ module.exports.register = function(req, res){
 
 
 
-module.exports.dashboard = async function(req, res){
-    if(req.isAuthenticated()){
-
-        let user = await User.findById(req.user.id).populate('habits');
-
-        let habits = user.habits;
-
-        return res.render('dashboard', {
-            title : "HT | Dashboard",
-            habits : habits,
-            user : user,
-        });
-    }else{
-        return res.render('login', {
-            title : "HT | Login"
-        });
-    }
-}
-
-
-
 
 module.exports.destroySession = function(req, res){
     req.logout();
+
+    req.flash('success', 'Logged out Successfully');
     return res.redirect('/');
 }
 
@@ -82,5 +61,6 @@ module.exports.createUser = function(req, res){
 
 module.exports.createSession = function(req, res){
     // Todo later
-    return res.redirect('/users/dashboard');
+    req.flash('success', 'Log In Successfully')
+    return res.redirect('/habits/dashboard');
 }
