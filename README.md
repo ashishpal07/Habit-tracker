@@ -23,3 +23,10 @@
   * Run 'npm start' in terminal to start server.
   * Visit your app at http://localhost:8000.
    
+## Folder Structure
+   ```css/assets```
+   ```config```
+   ```controllers```
+   ```models```
+   ```views```
+   ```index.js````
