@@ -24,9 +24,10 @@
   * Visit your app at http://localhost:8000.
    
 ## Folder Structure
-   ```css/assets```
-   ```config```
-   ```controllers```
-   ```models```
-   ```views```
-   ```index.js````
+  * ```css/assets```
+  *```config```
+  *```controllers```
+  *```models```
+  *```routes```
+  *```views```
+  *```index.js```
