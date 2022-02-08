@@ -25,9 +25,9 @@
    
 ## Folder Structure
   * ```css/assets```
-  *```config```
-  *```controllers```
-  *```models```
-  *```routes```
-  *```views```
-  *```index.js```
+  * ```config```
+  * ```controllers```
+  * ```models```
+  * ```routes```
+  * ```views```
+  * ```index.js```
